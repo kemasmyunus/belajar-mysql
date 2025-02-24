@@ -36,5 +36,3 @@ mysqldump -u root -p nama_database > backup.sql
 
 mysql -u root -p nama_database < backup.sql
 
-Dengan perintah lanjutan ini, Anda dapat lebih fleksibel dalam mengelola MySQL. Selamat belajar! 🚀
-
