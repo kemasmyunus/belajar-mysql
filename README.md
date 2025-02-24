@@ -1,2 +1,0 @@
-# belajar-mysql
-# belajar-excel
