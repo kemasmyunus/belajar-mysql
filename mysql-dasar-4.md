@@ -24,3 +24,32 @@ DROP INDEX idx_nama ON nama_tabel;
 ```sql
 ALTER TABLE nama_tabel ADD PRIMARY KEY (nama_kolom);
 ```
+
+## 27. Menghapus Primary Key
+```sql
+ALTER TABLE nama_tabel DROP PRIMARY KEY;
+```
+
+## 28. Menambahkan Foreign Key
+```sql
+ALTER TABLE anak ADD CONSTRAINT fk_parent FOREIGN KEY (id_parent) REFERENCES parent(id);
+```
+
+## 29. Menghapus Foreign Key
+```sql
+ALTER TABLE anak DROP FOREIGN KEY fk_parent;
+```
+
+## 30. Melihat Struktur Tabel
+```sql
+DESC nama_tabel;
+```
+atau
+```sql
+SHOW COLUMNS FROM nama_tabel;
+```
+
+## 31. Melihat Semua Tabel dalam Database
+```sql
+SHOW TABLES;
+```
