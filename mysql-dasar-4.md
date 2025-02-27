@@ -1,55 +1,50 @@
-# Perintah Lanjutan MySQL
 
-## 22. Mengubah Nama Tabel
-```sql
-ALTER TABLE nama_tabel RENAME TO nama_tabel_baru;
-```
-
-## 23. Mengubah Nama Kolom
-```sql
-ALTER TABLE nama_tabel CHANGE COLUMN kolom_lama kolom_baru VARCHAR(255);
-```
-
-## 24. Menambahkan Indeks ke Kolom
-```sql
-CREATE INDEX idx_nama ON nama_tabel(nama_kolom);
-```
-
-## 25. Menghapus Indeks dari Kolom
-```sql
-DROP INDEX idx_nama ON nama_tabel;
-```
-
-## 26. Menambahkan Primary Key
-```sql
-ALTER TABLE nama_tabel ADD PRIMARY KEY (nama_kolom);
-```
-
-## 27. Menghapus Primary Key
+### 27. Menghapus Primary Key
+Menghapus primary key dari suatu tabel.
 ```sql
 ALTER TABLE nama_tabel DROP PRIMARY KEY;
 ```
 
-## 28. Menambahkan Foreign Key
+### 28. Menambahkan Foreign Key
+Menambahkan foreign key untuk menghubungkan tabel.
 ```sql
 ALTER TABLE anak ADD CONSTRAINT fk_parent FOREIGN KEY (id_parent) REFERENCES parent(id);
 ```
 
-## 29. Menghapus Foreign Key
+### 29. Menghapus Foreign Key
+Menghapus foreign key yang telah dibuat sebelumnya.
 ```sql
 ALTER TABLE anak DROP FOREIGN KEY fk_parent;
 ```
 
-## 30. Melihat Struktur Tabel
+### 30. Membuat View
+Membuat tampilan virtual dari data tabel tertentu.
 ```sql
-DESC nama_tabel;
-```
-atau
-```sql
-SHOW COLUMNS FROM nama_tabel;
+CREATE VIEW view_nama AS
+SELECT nama, usia FROM nama_tabel WHERE usia > 20;
 ```
 
-## 31. Melihat Semua Tabel dalam Database
+### 31. Menghapus View
+Menghapus tampilan (view) dari database.
 ```sql
-SHOW TABLES;
+DROP VIEW view_nama;
 ```
+
+### 32. Menggunakan JOIN
+Menghubungkan dua tabel berdasarkan kondisi tertentu.
+```sql
+SELECT a.id, a.nama, b.alamat 
+FROM nama_tabel a
+INNER JOIN alamat_tabel b ON a.id = b.id_user;
+```
+
+### 33. Menggunakan Transaksi
+Menggunakan transaksi untuk memastikan perubahan data bersifat atomik.
+```sql
+START TRANSACTION;
+INSERT INTO nama_tabel (nama, usia) VALUES ('Ali', 30);
+SAVEPOINT sp1;
+ROLLBACK TO sp1;
+COMMIT;
+```
+
